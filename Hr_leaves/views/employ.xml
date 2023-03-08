@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+
+
+        <record model="ir.ui.view" id="view_employee_form_inherit">
+            <field name="name">employee.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='image_1920']" position="after">
+
+                                    <div class="oe_button_box" name="button_box2">
+                                        <button name="action_open_request" type="object" class="oe_stat_button" icon="fa-archive">
+                                            <div class="o_stat_info">
+                                                <field name="request_count" class="o_stat_value"/>
+                                               <span class="o_stat_text">requests</span>
+                                            </div>
+                                        </button>
+                                    </div>
+        </xpath>
+                 <xpath expr="//field[@name='work_phone']" position="after">
+                     <field name="request_count"/>
+                          </xpath>
+
+                     <xpath expr="//page[@name='public']" position="after">
+         <page string="Request">
+
+                        <tree>
+                            <field name="request_ids"/>
+                        </tree>
+                  </page>
+        </xpath>
+            </field>
+        </record>
+
+
+</odoo>
